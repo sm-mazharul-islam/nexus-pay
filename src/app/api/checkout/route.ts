@@ -26,7 +26,7 @@ export async function POST(req: Request) {
       data: {
         userId: "user_01", // আপনি চাইলে এখান থেকে ডাইনামিক ইউজার আইডি নিতে পারেন
         amount: parseFloat(amount.toString()),
-        status: "PENDING",
+        status: "PAID",
         transactionId: `TXN_${Date.now()}`,
       },
     });
