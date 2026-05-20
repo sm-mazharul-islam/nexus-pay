@@ -19,7 +19,7 @@ model Order {
   userId        String
   amount        Float
   currency      String      @default("BDT")
-  status        OrderStatus @default(PENDING)
+  status        OrderStatus @default(PAID)
   transactionId String      @unique
   createdAt     DateTime    @default(now())
 }
