@@ -1,0 +1,25 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+enum OrderStatus {
+  PENDING
+  PAID
+  FAILED
+  CANCELLED
+}
+
+model Order {
+  id            String      @id @default(auto()) @map("_id") @db.ObjectId
+  userId        String
+  amount        Float
+  currency      String      @default("BDT")
+  status        OrderStatus @default(PENDING)
+  transactionId String      @unique
+  createdAt     DateTime    @default(now())
+}
